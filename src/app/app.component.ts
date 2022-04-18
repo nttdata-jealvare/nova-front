@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'everis-dar-todo-list-front';
+  title = 'TO-DO List App';
 }

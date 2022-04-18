@@ -1,0 +1,8 @@
+<h2>Tareas</h2>
+<ul class=tasks>
+  <li *ngFor="let task of tasks">
+    <span class="task-disp">Task ID {{task.id}}</span>
+    <label igxLabel>{{task.description}}</label>
+    <label igxLabel >{{task.status}}</label>
+  </li>
+</ul>
