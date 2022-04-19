@@ -5,3 +5,10 @@
   position: relative;
   top: 3em;
 }
+
+.task-detail{
+  display:-webkit-inline-box;
+  white-space:initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

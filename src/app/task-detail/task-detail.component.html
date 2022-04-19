@@ -1,14 +1,17 @@
 <div *ngIf="task">
-  <h2>{{task.description | uppercase}} Details</h2>
-  <div><span>id: </span>{{task.id}}</div>
-  <div>
-    <label>Task: </label>
-    <input [(ngModel)]="task.description" placeholder="Task description"/>
-    <mat-label>{{task.description}}</mat-label>
-     <mat-select class="status-select" [(ngModel)]="task.status">
+  <h2>Task details</h2>
+  <div><mat-toolbar>ID: {{task.id}}</mat-toolbar></div>
+  <mat-form-field class="task-detail">
+      <mat-label>Task description</mat-label>
+      <input matInput [(ngModel)]="task.description" placeholder="Task description"/>
+    </mat-form-field>
+  <mat-form-field class="task-detail">
+     <mat-select [(ngModel)]="task.status">
       <mat-option *ngFor="let opt of status" [value]="opt">{{opt}}</mat-option>
      </mat-select>
+    </mat-form-field>
+  <div>
+    <!--<button type="button" (click)="save()">save</button>-->
+    <button mat-raised-button type="button" (click)="goBack()">Atrás</button>
   </div>
-  <!--<button type="button" (click)="save()">save</button>-->
-  <button type="button" (click)="goBack()">go back</button>
 </div>

@@ -48,6 +48,12 @@
   border-radius: 4px 0 0 4px;
 }
 
+.descp-list{
+  white-space:initial;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 label {
   color: #607D8B;
   font-weight: bold;
@@ -57,15 +63,15 @@ label {
 
 a {
   text-decoration: none;
-  color:#405061;
+  color: #000;
 }
 
 a:hover {
   text-decoration: none;
-  color:#000000;
+  color:#405061;
 }
 
-
+// State colors
 .stateNew {
   background-color: #0f0;
   width: 150px;
@@ -92,4 +98,11 @@ a:hover {
   width: 150px;
   border-radius: 5px;
   text-align: center;
+}
+
+.trash-bttn{
+  display:inline-flex;
+  position: absolute;
+  right: 15px;
+  top: 2px;
 }
