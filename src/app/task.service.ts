@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import {Task} from './task';
 import {TASKS} from './mock-tasks';
 
 @Injectable({
@@ -20,4 +19,9 @@ export class TaskService {
     const task = TASKS.find(h => h.id === id)!;
     return of(task);
   }
+
+  /*getTaskByID(id: number) : Observable<Task>{
+    const url = "";
+    return null;
+  }*/
 }

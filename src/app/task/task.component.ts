@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import { TASKS } from '../mock-tasks';
 import { TaskService } from '../task.service';
 import { STATUS } from '../status';
 import {Task} from '../task';
@@ -23,6 +22,11 @@ export class TaskComponent implements OnInit {
   getTasks(){
     this.taskService.getTasks()
       .subscribe(tasks => this.tasks = tasks);
+  }
+
+  deleteTask(task: Task){
+    this.tasks = this.tasks.filter(t => t !== task);
+    // DEL
   }
 
   // FILTERS

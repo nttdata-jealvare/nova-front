@@ -54,12 +54,7 @@
   text-overflow: ellipsis;
 }
 
-label {
-  color: #607D8B;
-  font-weight: bold;
-  text-align: center;
-  display: inline-block;
-}
+h2 {color: #525252; font-family: 'Enriqueta',sans-serif; font-size: 30px; font-weight: 600; line-height: 36px; margin: 0 0 24px; text-align:justify;}
 
 a {
   text-decoration: none;
@@ -105,4 +100,10 @@ a:hover {
   position: absolute;
   right: 15px;
   top: 2px;
+  border-radius: 30%;
+
+}
+
+.trash-bttn:hover{
+  cursor:pointer;
 }
