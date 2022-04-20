@@ -1,11 +1,10 @@
 <h2>Nueva tarea</h2>
-  <div class="task-detail-description">
-    <mat-form-field class="task-detail">
-      <mat-label>Descripción de la tarea </mat-label> <input matInput #taskDesc>
-    </mat-form-field>
-  </div>
-  <div class="task-detail-bttns">
-    <!--<button type="button" (click)="save()">save</button>-->
-    <button mat-raised-button type="button" (click)="add(taskDesc.value)">Crear</button>
-    <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>
-  </div>
+<div class="task-detail-description">
+  <mat-form-field class="task-detail">
+    <mat-label>Descripción de la tarea </mat-label> <input matInput #taskDesc>
+  </mat-form-field>
+</div>
+<div class="task-detail-bttns">
+  <button mat-raised-button type="button" (click)="add(taskDesc.value)">Crear</button>
+  <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>
+</div>

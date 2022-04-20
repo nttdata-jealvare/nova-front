@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../task.service';
 import {DefaultService} from '../services/api/default.service';
-import { STATUS } from '../status';
 import {Task} from '../task';
-import { Observer } from 'rxjs';
 
 @Component({
   selector: 'app-task',
@@ -15,9 +12,8 @@ export class TaskComponent implements OnInit {
   tasks : Task[] = [];
   taskCompleted : Task[] = [];
   taskPending : Task[] = [];
-  status = STATUS;
 
-  constructor(private taskService : TaskService, private taskSwaggerService: DefaultService) { }
+  constructor(private taskSwaggerService: DefaultService) { }
 
   ngOnInit(): void {
     this.getTasks();
@@ -26,8 +22,6 @@ export class TaskComponent implements OnInit {
   }
 
   getTasks(){
-    /*this.taskService.getTasks()
-      .subscribe(tasks => this.tasks = tasks);*/
     this.taskSwaggerService.listTasks().subscribe((data: any[]) => {
       this.tasks = data;
     });
