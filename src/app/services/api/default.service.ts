@@ -177,7 +177,7 @@ export class DefaultService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<any>(`${this.basePath}/allTasks`,
+        return this.httpClient.delete<any>(`${this.basePath}/allTasks`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

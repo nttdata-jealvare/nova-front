@@ -1,10 +1,16 @@
 <div class="list-column"><h2>Todas las tareas</h2>
-<a mat-button routerLink="/newTask">Añadir tarea</a>
+<div>
+  <a mat-stroked-button routerLink="/newTask">Añadir tarea</a>
+  <button *ngIf="tasks.length > 0" mat-stroked-button color="warn" (click)="deleteAllTask()">Borrar todo</button>
+</div>
 <ul class=tasks>
+  <div *ngIf="tasks.length < 1">
+    <h3>No hay tareas pendientes.</h3>
+  </div>
   <li *ngFor="let task of tasks">
     <a routerLink="/detail/{{task.id}}">
     <span class="task-disp">Task ID {{task.id}}</span>
-    <div class="descp-list-cont">
+    <div class="descp-list-cont each-task">
       <mat-label class="descp-list">{{task.description}}</mat-label>
     </div>
     <div [ngClass]="{ 'stateNew': task.status == 'New',
@@ -24,14 +30,14 @@
 </div>
 
 <div class="list-column">
-
 <div *ngIf="taskPending.length > 0">
   <h2>Tareas pendientes</h2>
+
   <ul class=tasks>
     <li *ngFor="let task of taskPending">
       <a routerLink="/detail/{{task.id}}">
       <span class="task-disp">Task ID {{task.id}}</span>
-      <div >
+      <div class="each-task">
         <mat-label class="descp-list">{{task.description}}</mat-label>
       </div>
       </a>
@@ -50,7 +56,7 @@
     <li *ngFor="let task of taskCompleted">
       <a routerLink="/detail/{{task.id}}">
       <span class="task-disp">Task ID {{task.id}}</span>
-      <div>
+      <div class="each-task">
         <mat-label class="descp-list">{{task.description}}</mat-label>
       </div>
       </a>

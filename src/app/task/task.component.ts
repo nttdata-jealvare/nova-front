@@ -43,7 +43,11 @@ export class TaskComponent implements OnInit {
   }
 
   deleteAllTask(){
-
+    this.taskSwaggerService.deleteAllTasks().subscribe(
+      success =>{
+        this.ngOnInit();
+      }
+    );
   }
 
   getPendingTasks(){

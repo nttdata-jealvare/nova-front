@@ -1,14 +1,10 @@
 <h2>Nueva tarea</h2>
-<mat-form-field class="task-detail">
-  <mat-label>Descripción de la tarea </mat-label> <input matInput #taskDesc>
+  <div class="task-detail-description">
+    <mat-form-field class="task-detail">
+      <mat-label>Descripción de la tarea </mat-label> <input matInput #taskDesc>
     </mat-form-field>
-  <!--<mat-form-field class="task-detail">
-     <mat-select #taskStatus>
-      <mat-option *ngFor="let opt of status" [value]="opt">{{opt}}</mat-option>
-     </mat-select>
-    </mat-form-field>
-  -->
-  <div>
+  </div>
+  <div class="task-detail-bttns">
     <!--<button type="button" (click)="save()">save</button>-->
     <button mat-raised-button type="button" (click)="add(taskDesc.value)">Crear</button>
     <button mat-raised-button type="button" (click)="cancel()">Cancelar</button>

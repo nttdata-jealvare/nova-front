@@ -1,15 +1,19 @@
 <div *ngIf="task">
   <h2>Task details</h2>
   <div><mat-toolbar>ID: {{task.id}}</mat-toolbar></div>
+  <div class="task-detail-description">
   <mat-form-field class="task-detail">
       <mat-label>Task description</mat-label>
       <input matInput [(ngModel)]="task.description" placeholder="Task description"/>
     </mat-form-field>
+  </div>
+  <div class="task-detail-status">
   <mat-form-field class="task-detail">
      <mat-select [(ngModel)]="task.status">
       <mat-option *ngFor="let opt of status" [value]="opt">{{opt}}</mat-option>
      </mat-select>
     </mat-form-field>
+  </div>
   <div>
     <button mat-raised-button type="button" (click)="updateTask(task)">Guardar</button>
     <button mat-raised-button type="button" (click)="goBack()">Atrás</button>
