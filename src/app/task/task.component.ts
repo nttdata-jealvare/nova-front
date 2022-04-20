@@ -35,7 +35,15 @@ export class TaskComponent implements OnInit {
 
   deleteTask(task: Task){
     this.tasks = this.tasks.filter(t => t !== task);
-    this.taskSwaggerService.deleteATask(task.id);
+    this.taskSwaggerService.deleteATask(task.id).subscribe(
+      success =>{
+        this.ngOnInit();
+      }
+    );
+  }
+
+  deleteAllTask(){
+
   }
 
   getPendingTasks(){

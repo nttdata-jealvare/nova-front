@@ -22,8 +22,10 @@
   </li>
 </ul>
 </div>
+
 <div class="list-column">
-<div *ngIf="true">
+
+<div *ngIf="taskPending.length > 0">
   <h2>Tareas pendientes</h2>
   <ul class=tasks>
     <li *ngFor="let task of taskPending">
@@ -42,20 +44,21 @@
   </ul>
 </div>
 
-<h2>Tareas completadas</h2>
-<ul class=tasks>
-  <li *ngFor="let task of taskCompleted">
-    <a routerLink="/detail/{{task.id}}">
-    <span class="task-disp">Task ID {{task.id}}</span>
-    <div>
-      <mat-label class="descp-list">{{task.description}}</mat-label>
-    </div>
-    </a>
-    <div>
-      <button class="trash-bttn" color="primary" (click)="deleteTask(task)">
-        <mat-icon>delete_outline</mat-icon>
-      </button>
-    </div>
-  </li>
-</ul>
+<div *ngIf="taskCompleted.length > 0">
+  <h2>Tareas completadas</h2>
+  <ul class=tasks>
+    <li *ngFor="let task of taskCompleted">
+      <a routerLink="/detail/{{task.id}}">
+      <span class="task-disp">Task ID {{task.id}}</span>
+      <div>
+        <mat-label class="descp-list">{{task.description}}</mat-label>
+      </div>
+      </a>
+      <div>
+        <button class="trash-bttn" color="primary" (click)="deleteTask(task)">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      </div>
+    </li>
+  </ul>
 </div>

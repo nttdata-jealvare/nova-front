@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { TaskService } from '../task.service';
+import {DefaultService} from '../services/api/default.service';
 import {Task} from '../task';
 import { STATUS } from '../status';
 
@@ -19,6 +20,7 @@ export class NewTaskComponent implements OnInit {
 
   constructor(
               private taskService : TaskService,
+              private taskSwaggerService: DefaultService,
               private location : Location
               ) { }
 
@@ -32,17 +34,13 @@ export class NewTaskComponent implements OnInit {
   }
 
   add(descr: string): void {
-
     if (!descr) { return; }
-    /*this.taskService.addHero({ name } as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
-      });*/
-
-    var newTask : Task = {id: 21, description: descr, status: "New"};
-
-    this.tasks.push(newTask);
-    this.location.back();
+    var newTask : Task = {id: 0, description: descr, status: "New"};
+    this.taskSwaggerService.addNewTask(newTask)
+      .subscribe((task : any) => {
+        this.tasks.push(task);
+        this.location.back();
+      });
   }
 
   cancel(): void {
