@@ -18,6 +18,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { DefaultService } from './services/api/default.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,9 +39,10 @@ import { NewTaskComponent } from './new-task/new-task.component';
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DefaultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
