@@ -37,8 +37,11 @@ export class TaskDetailComponent implements OnInit {
     this.location.back();
   }
 
-  // SAVE
   save(task: Task): void{
-
+    this.taskSwaggerService.addNewTask(task).subscribe(
+      success => {
+        this.location.back();
+      }
+    );
   }
 }
