@@ -1,10 +1,10 @@
 <div *ngIf="task">
-  <h2>Task details</h2>
-  <div><mat-toolbar>ID: {{task.id}}</mat-toolbar></div>
+  <h2>Detalles de la tarea</h2>
+  <div><mat-toolbar>ID {{task.id}}</mat-toolbar></div>
   <div class="task-detail-description">
-  <mat-form-field class="task-detail">
-      <mat-label>Task description</mat-label>
-      <input matInput [(ngModel)]="task.description" placeholder="Task description"/>
+  <mat-form-field appearance="fill" class="task-detail">
+      <mat-label>Descripción de la tarea</mat-label>
+      <input matInput [(ngModel)]="task.description" placeholder="Descripción de la tarea"/>
     </mat-form-field>
   </div>
   <div class="task-detail-status">
