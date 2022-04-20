@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import {Task} from '../task';
 import { TaskService } from '../task.service';
 import { STATUS } from '../status';
+import {DefaultService} from '../services/api/default.service';
 
 @Component({
   selector: 'app-task-detail',
@@ -18,6 +19,7 @@ export class TaskDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private taskService: TaskService,
+    private taskSwaggerService: DefaultService,
     private location: Location
     ) { }
 
@@ -27,7 +29,8 @@ export class TaskDetailComponent implements OnInit {
 
   getTask(): void{
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.taskService.getTask(id).subscribe(task => this.task = task);
+    //this.taskService.getTask(id).subscribe(task => this.task = task);
+    this.taskSwaggerService.getATask(id).subscribe((task : any) => this.task = task);
   }
 
   goBack(): void {
@@ -35,4 +38,7 @@ export class TaskDetailComponent implements OnInit {
   }
 
   // SAVE
+  save(task: Task): void{
+
+  }
 }

@@ -13,12 +13,16 @@ import { Observer } from 'rxjs';
 export class TaskComponent implements OnInit {
 
   tasks : Task[] = [];
+  taskCompleted : Task[] = [];
+  taskPending : Task[] = [];
   status = STATUS;
 
   constructor(private taskService : TaskService, private taskSwaggerService: DefaultService) { }
 
   ngOnInit(): void {
     this.getTasks();
+    this.getPendingTasks();
+    this.getCompletedTasks();
   }
 
   getTasks(){
@@ -31,15 +35,18 @@ export class TaskComponent implements OnInit {
 
   deleteTask(task: Task){
     this.tasks = this.tasks.filter(t => t !== task);
-    // DEL
+    this.taskSwaggerService.deleteATask(task.id);
   }
 
-  // FILTERS
   getPendingTasks(){
-    return this.tasks.filter((task) => task.status === "Pending");
+    this.taskSwaggerService.listPendingTasks().subscribe((dataP: any[]) => {
+      this.taskPending = dataP;
+    });
   }
 
   getCompletedTasks(){
-    return this.tasks.filter((task) => task.status === "Completed");
+    this.taskSwaggerService.listCompletedTasks().subscribe((dataC: any[]) => {
+      this.taskCompleted = dataC;
+    });
   }
 }
