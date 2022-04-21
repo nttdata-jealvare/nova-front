@@ -25,20 +25,10 @@ export class NewTaskComponent implements OnInit {
               ) { }
 
   /**
-   * Get all tasks on components init
+   * Default init
    */
   ngOnInit(): void {
-    this.getTasks();
-  }
 
-  /**
-   * Retrieve tasks from service and
-   * set into the task array
-   */
-  getTasks(){
-    this.taskSwaggerService.listTasks().subscribe((data: any[]) => {
-      this.tasks = data;
-    });
   }
 
   /**
@@ -56,7 +46,7 @@ export class NewTaskComponent implements OnInit {
 
     this.taskSwaggerService.addNewTask(newTask)
       .subscribe((task : any) => {
-        this.tasks.push(task);
+        //this.tasks.push(task);
         this.location.back();
       });
   }
