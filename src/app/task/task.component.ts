@@ -38,7 +38,7 @@ export class TaskComponent implements OnInit {
   }
 
   /**
-   *
+   * Delete a task from the list
    * @param task
    */
   deleteTask(task: Task){
@@ -51,7 +51,7 @@ export class TaskComponent implements OnInit {
   }
 
   /**
-   *
+   * Delete all storage tasks
    */
   deleteAllTask(){
     this.taskSwaggerService.deleteAllTasks().subscribe(
@@ -62,7 +62,7 @@ export class TaskComponent implements OnInit {
   }
 
   /**
-   *
+   * Get tasks with status="Pending"
    */
   getPendingTasks(){
     this.taskSwaggerService.listPendingTasks().subscribe((dataP: any[]) => {
@@ -71,7 +71,7 @@ export class TaskComponent implements OnInit {
   }
 
   /**
-   *
+   * Get tasks with status="Completed"
    */
   getCompletedTasks(){
     this.taskSwaggerService.listCompletedTasks().subscribe((dataC: any[]) => {

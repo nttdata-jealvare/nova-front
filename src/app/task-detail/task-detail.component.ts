@@ -7,7 +7,7 @@ import { STATUS } from '../status';
 import {DefaultService} from '../services/api/default.service';
 
 /**
- *
+ * Component of a task details
  */
 @Component({
   selector: 'app-task-detail',
@@ -25,32 +25,34 @@ export class TaskDetailComponent implements OnInit {
     ) { }
 
   /**
-   *
+   * Initialize the task that will operate with
    */
   ngOnInit(): void {
     this.getTask();
   }
 
   /**
-   *
+   * Retrieve the task with which we will extract
+   * all information
    */
-  getTask(): void{
+  getTask(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.taskSwaggerService.getATask(id).subscribe((task : any) => this.task = task);
   }
 
   /**
-   *
+   * Go back to the previous page to avoid
+   * insert something
    */
   goBack(): void {
     this.location.back();
   }
 
   /**
-   *
+   * Update task information
    * @param task
    */
-  updateTask(task: Task): void{
+  updateTask(task: Task): void {
     this.taskSwaggerService.addNewTask(task).subscribe(
       success => {
         this.location.back();

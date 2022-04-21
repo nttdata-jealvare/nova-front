@@ -32,7 +32,6 @@
 <div class="list-column">
 <div *ngIf="taskPending.length > 0">
   <h2>Tareas pendientes</h2>
-
   <ul class=tasks>
     <li *ngFor="let task of taskPending">
       <a routerLink="/detail/{{task.id}}">

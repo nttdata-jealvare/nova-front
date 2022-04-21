@@ -3,7 +3,6 @@ import { Location } from '@angular/common';
 
 import {DefaultService} from '../services/api/default.service';
 import {Task} from '../task';
-import { STATUS } from '../status';
 
 /**
  * Component of a new task
@@ -14,10 +13,6 @@ import { STATUS } from '../status';
   styleUrls: ['./new-task.component.scss']
 })
 export class NewTaskComponent implements OnInit {
-
-  tasks : Task[] = [];
-  task : Task | undefined;
-  status : string[] = STATUS;
 
   constructor(
               private taskSwaggerService: DefaultService,
@@ -46,7 +41,6 @@ export class NewTaskComponent implements OnInit {
 
     this.taskSwaggerService.addNewTask(newTask)
       .subscribe((task : any) => {
-        //this.tasks.push(task);
         this.location.back();
       });
   }
