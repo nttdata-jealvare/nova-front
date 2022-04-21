@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {DefaultService} from '../services/api/default.service';
 import {Task} from '../task';
 
+/**
+ *
+ */
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -15,18 +18,28 @@ export class TaskComponent implements OnInit {
 
   constructor(private taskSwaggerService: DefaultService) { }
 
+  /**
+   *
+   */
   ngOnInit(): void {
     this.getTasks();
     this.getPendingTasks();
     this.getCompletedTasks();
   }
 
+  /**
+   *
+   */
   getTasks(){
     this.taskSwaggerService.listTasks().subscribe((data: any[]) => {
       this.tasks = data;
     });
   }
 
+  /**
+   *
+   * @param task
+   */
   deleteTask(task: Task){
     this.tasks = this.tasks.filter(t => t !== task);
     this.taskSwaggerService.deleteATask(task.id).subscribe(
@@ -36,6 +49,9 @@ export class TaskComponent implements OnInit {
     );
   }
 
+  /**
+   *
+   */
   deleteAllTask(){
     this.taskSwaggerService.deleteAllTasks().subscribe(
       success =>{
@@ -44,12 +60,18 @@ export class TaskComponent implements OnInit {
     );
   }
 
+  /**
+   *
+   */
   getPendingTasks(){
     this.taskSwaggerService.listPendingTasks().subscribe((dataP: any[]) => {
       this.taskPending = dataP;
     });
   }
 
+  /**
+   *
+   */
   getCompletedTasks(){
     this.taskSwaggerService.listCompletedTasks().subscribe((dataC: any[]) => {
       this.taskCompleted = dataC;

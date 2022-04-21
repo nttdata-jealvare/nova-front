@@ -1,5 +1,8 @@
 import { Task } from './task';
 
+/**
+ *  Examples for modelling the enviroment
+ */
 export const TASKS: Task[] = [
   { id: 11, description: 'Test sobre la tarea SCRUMTSK00023', status: 'In Progress'},
   { id: 12, description: 'Comunicación con el cliente sobre la nueva implementación', status: 'In Progress'},

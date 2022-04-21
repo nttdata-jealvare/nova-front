@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { TaskService } from '../task.service';
@@ -7,6 +6,9 @@ import {DefaultService} from '../services/api/default.service';
 import {Task} from '../task';
 import { STATUS } from '../status';
 
+/**
+ * Component of a new task
+ */
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
@@ -24,18 +26,35 @@ export class NewTaskComponent implements OnInit {
               private location : Location
               ) { }
 
+  /**
+   * Get all tasks on components init
+   */
   ngOnInit(): void {
     this.getTasks();
   }
 
+  /**
+   * Retrieve tasks from service and
+   * set into the task array
+   */
   getTasks(){
     this.taskService.getTasks()
       .subscribe(tasks => this.tasks = tasks);
   }
 
+  /**
+   * Add a new task entering a description
+   *
+   * As a new task it must have a status of new
+   *
+   * @param descr
+   * @returns empty if there is no description
+   */
   add(descr: string): void {
     if (!descr) { return; }
+
     var newTask : Task = {id: 0, description: descr, status: "New"};
+
     this.taskSwaggerService.addNewTask(newTask)
       .subscribe((task : any) => {
         this.tasks.push(task);
@@ -43,6 +62,10 @@ export class NewTaskComponent implements OnInit {
       });
   }
 
+  /**
+   * Cancel this form and go back to the previous
+   * page to avoid insert something
+   */
   cancel(): void {
     this.location.back();
   }

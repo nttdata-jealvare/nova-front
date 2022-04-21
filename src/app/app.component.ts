@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Main App in this Frontend
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
