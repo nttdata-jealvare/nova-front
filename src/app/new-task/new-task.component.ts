@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { TaskService } from '../task.service';
 import {DefaultService} from '../services/api/default.service';
 import {Task} from '../task';
 import { STATUS } from '../status';
@@ -21,7 +20,6 @@ export class NewTaskComponent implements OnInit {
   status : string[] = STATUS;
 
   constructor(
-              private taskService : TaskService,
               private taskSwaggerService: DefaultService,
               private location : Location
               ) { }
@@ -38,8 +36,9 @@ export class NewTaskComponent implements OnInit {
    * set into the task array
    */
   getTasks(){
-    this.taskService.getTasks()
-      .subscribe(tasks => this.tasks = tasks);
+    this.taskSwaggerService.listTasks().subscribe((data: any[]) => {
+      this.tasks = data;
+    });
   }
 
   /**

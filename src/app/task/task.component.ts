@@ -3,7 +3,7 @@ import {DefaultService} from '../services/api/default.service';
 import {Task} from '../task';
 
 /**
- *
+ * Component of a tasks
  */
 @Component({
   selector: 'app-task',
@@ -19,7 +19,7 @@ export class TaskComponent implements OnInit {
   constructor(private taskSwaggerService: DefaultService) { }
 
   /**
-   *
+   * Retrieve all data from services on init
    */
   ngOnInit(): void {
     this.getTasks();
@@ -28,7 +28,8 @@ export class TaskComponent implements OnInit {
   }
 
   /**
-   *
+   * Retrieve tasks from service and
+   * set into the task array
    */
   getTasks(){
     this.taskSwaggerService.listTasks().subscribe((data: any[]) => {
